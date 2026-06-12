@@ -1,31 +1,40 @@
 :root {
-    --primary-color-hai: #7fad39;
-    --text-color-hai: #1c1c1c;
-    --para-color-hai: #6f6f6f;
-    --bg-gray-hai: #f5f5f5;
-    --border-color-hai: #ebebeb;
+            --primary-color-hai: #7fad39;
+            --text-color-hai: #1c1c1c;
+            --para-color-hai: #6f6f6f;
+            --bg-gray-hai: #f5f5f5;
+            --border-color-hai: #ebebeb;
 }
-* {
-    margin: 0;
-    box-sizing: border-box;
-    list-style: none;
-}
-a {
-    text-decoration: none;
-    color: inherit;
-}
-.body-hai {
-    font-family: 'Montserrat', sans-serif;
-    
-}
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
 
-    width: 100%;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    list-style: none; 
 }
-.inner {
-    width: 100%;
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: all 0.3s ease; 
+}
+
+.body-hai {
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.container { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    width: 100%; 
+    padding: 0 15px; 
+}
+
+.inner { 
+    width: 100%; 
 }
 
 /* -------RESPONSIVE------- */
