@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
 </head>
 
 <body class="body-hai">
-     <header class="header-hai">
+    <header class="header-hai">
         <div class="container">
             <div class="inner">
                 <div class="o1-hai">
@@ -35,8 +36,15 @@
                     </nav>
                     <div class="cart-hai">
                         <div class="icon-hai">
-                            <a href="#"><i class="fa fa-heart"></i><span>0</span></a>
-                            <a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a>
+                            <a href="#" id="header-wishlist-btn">
+                                <i class="fa fa-heart"></i>
+                                <span id="wishlist-count">0</span>
+                            </a>
+
+                            <a href="#" id="header-cart-btn">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span id="cart-count">0</span>
+                            </a>
                         </div>
                         <div class="cart-price-hai">item: <span><b>$0.00</b></span></div>
                     </div>
@@ -93,72 +101,438 @@
     <div class="section3-hai">
         <div class="container">
             <div class="inner">
-                <div class="s3-text-hai">Featured Product</div>
-                <div class="dongke-hai"></div>
-                <ul>
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">Milk</a></li>
-                    <li><a href="#">Fresh Meat</a></li>
-                    <li><a href="#">Vegetables</a></li>
-                    <li><a href="#">Fastfood</a></li>
-                </ul>
+                <div class="s3-text-hai"><span>Featured Product</span>
+                    <div class="dongke-hai"></div>
+                    <ul class="featured-nav">
+                        <li class="active" data-filter="all">All</li>
+                        <li data-filter="milk">Milk</li>
+                        <li data-filter="fresh-meat">Fresh Meat</li>
+                        <li data-filter="vegetables">Vegetables</li>
+                        <li data-filter="fastfood">Fastfood</li>
+                    </ul>
+                </div>
+
                 <div class="s3-anh-hai">
-                    <div class="hang-hai">
-                        <div class="box-hai">
-                            <div class="img-box-hai"><img class="anh-hai" src="https://png.pngtree.com/png-vector/20240506/ourmid/pngtree-fresh-beef-on-a-plate-with-transparent-background-png-image_12364944.png" alt="Product"></div>
-                            <p class="product-name-hai">Crab Pool Security</p>
-                            <p class="product-price-hai">$30.00</p>
+                    <div id="no-product" class="no-product">Không có sản phẩm nào thuộc danh mục này</div>
+                    <div class="box-hai" data-category="fresh-meat">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-vector/20240506/ourmid/pngtree-fresh-beef-on-a-plate-with-transparent-background-png-image_12364944.png"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp1" data-name="Fresh Beef"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-vector/20240506/ourmid/pngtree-fresh-beef-on-a-plate-with-transparent-background-png-image_12364944.png"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp1" data-name="Fresh Beef"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-vector/20240506/ourmid/pngtree-fresh-beef-on-a-plate-with-transparent-background-png-image_12364944.png"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
                         </div>
-                        <div class="box-hai">
-                            <div class="img-box-hai"><img class="anh-hai" src="https://png.pngtree.com/png-clipart/20250124/original/pngtree-bunch-of-bananas-on-white-background-clipart-illustration-png-image_20012851.png" alt="Product"></div>
-                            <p class="product-name-hai">Crab Pool Security</p>
-                            <p class="product-price-hai">$30.00</p>
+                        <p class="product-name-hai">Fresh Beef</p>
+                        <p class="product-price-hai">$30.00</p>
+                    </div>
+
+                    <div class="box-hai" data-category="vegetables">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-clipart/20250124/original/pngtree-bunch-of-bananas-on-white-background-clipart-illustration-png-image_20012851.png"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp2" data-name="Fresh Bananas"
+                                        data-price="$25.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250124/original/pngtree-bunch-of-bananas-on-white-background-clipart-illustration-png-image_20012851.png"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp2" data-name="Fresh Bananas"
+                                        data-price="$25.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250124/original/pngtree-bunch-of-bananas-on-white-background-clipart-illustration-png-image_20012851.png"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
                         </div>
-                        <div class="box-hai">
-                            <div class="img-box-hai"><img class="anh-hai" src="https://png.pngtree.com/png-vector/20251224/ourmid/pngtree-sliced-watermelon-on-white-background-png-image_18328177.webp" alt="Product"></div>
-                            <p class="product-name-hai">Crab Pool Security</p>
-                            <p class="product-price-hai">$30.00</p>
+                        <p class="product-name-hai">Fresh Bananas</p>
+                        <p class="product-price-hai">$25.00</p>
+                    </div>
+
+                    <div class="box-hai" data-category="vegetables">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-vector/20251224/ourmid/pngtree-sliced-watermelon-on-white-background-png-image_18328177.webp"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp3" data-name="Sweet Watermelon"
+                                        data-price="$15.00"
+                                        data-image="https://png.pngtree.com/png-vector/20251224/ourmid/pngtree-sliced-watermelon-on-white-background-png-image_18328177.webp"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp3" data-name="Sweet Watermelon"
+                                        data-price="$15.00"
+                                        data-image="https://png.pngtree.com/png-vector/20251224/ourmid/pngtree-sliced-watermelon-on-white-background-png-image_18328177.webp"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
                         </div>
-                        <div class="box-hai">
-                            <div class="img-box-hai"><img class="anh-hai" src="https://png.pngtree.com/png-clipart/20250109/original/pngtree-fruit-loops-cereal-bowl-on-transparent-background-png-image_20110142.png" alt="Product"></div>
-                            <p class="product-name-hai">Crab Pool Security</p>
-                            <p class="product-price-hai">$30.00</p>
+                        <p class="product-name-hai">Sweet Watermelon</p>
+                        <p class="product-price-hai">$15.00</p>
+                    </div>
+
+                    <div class="box-hai" data-category="fastfood">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-clipart/20250109/original/pngtree-fruit-loops-cereal-bowl-on-transparent-background-png-image_20110142.png"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp4" data-name="Fruit Cereal"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250109/original/pngtree-fruit-loops-cereal-bowl-on-transparent-background-png-image_20110142.png"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp4" data-name="Fruit Cereal"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250109/original/pngtree-fruit-loops-cereal-bowl-on-transparent-background-png-image_20110142.png"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <p class="product-name-hai">Fruit Cereal</p>
+                        <p class="product-price-hai">$30.00</p>
+                    </div>
+
+                    <div class="box-hai" data-category="vegetables">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-clipart/20250124/original/pngtree-organic-raspberries-in-a-basket-isolated-on-white-background-png-image_20009889.png"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp5" data-name="Organic Raspberries"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250124/original/pngtree-organic-raspberries-in-a-basket-isolated-on-white-background-png-image_20009889.png"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp5" data-name="Organic Raspberries"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250124/original/pngtree-organic-raspberries-in-a-basket-isolated-on-white-background-png-image_20009889.png"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <p class="product-name-hai">Organic Raspberries</p>
+                        <p class="product-price-hai">$30.00</p>
+                    </div>
+
+                    <div class="box-hai" data-category="vegetables">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-clipart/20250131/original/pngtree-perfect-apple-on-white-background-for-flyers-and-brochures-png-image_20353147.png"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp6" data-name="Perfect Apple"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250131/original/pngtree-perfect-apple-on-white-background-for-flyers-and-brochures-png-image_20353147.png"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp6" data-name="Perfect Apple"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250131/original/pngtree-perfect-apple-on-white-background-for-flyers-and-brochures-png-image_20353147.png"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <p class="product-name-hai">Perfect Apple</p>
+                        <p class="product-price-hai">$30.00</p>
+                    </div>
+
+                    <div class="box-hai" data-category="fastfood">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-clipart/20250518/original/pngtree-classic-hamburger-sandwich-on-white-background-png-image_21026360.png"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp7" data-name="Classic Hamburger"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250518/original/pngtree-classic-hamburger-sandwich-on-white-background-png-image_21026360.png"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp7" data-name="Classic Hamburger"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20250518/original/pngtree-classic-hamburger-sandwich-on-white-background-png-image_21026360.png"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <p class="product-name-hai">Classic Hamburger</p>
+                        <p class="product-price-hai">$30.00</p>
+                    </div>
+
+                    <div class="box-hai" data-category="fresh-meat">
+                        <div class="img-box-hai">
+                            <img src="https://png.pngtree.com/png-clipart/20240506/original/pngtree-red-fish-meat-concept-color-png-image_15017947.png"
+                                alt="Product">
+                            <ul class="hover-icons">
+                                <li><a href="#" class="add-to-wishlist" data-id="sp8" data-name="Red Fish Meat"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20240506/original/pngtree-red-fish-meat-concept-color-png-image_15017947.png"><i
+                                            class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#" class="add-to-cart" data-id="sp8" data-name="Red Fish Meat"
+                                        data-price="$30.00"
+                                        data-image="https://png.pngtree.com/png-clipart/20240506/original/pngtree-red-fish-meat-concept-color-png-image_15017947.png"><i
+                                            class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <p class="product-name-hai">Red Fish Meat</p>
+                        <p class="product-price-hai">$30.00</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="section4-hai">
+    <div class="container">
+        <div class="inner">
+            <div class="s4-box">
+                <div class="s4-text">Latest Products</div>
+                <div class="s4-btn">
+                    <button class="nav-btn prev-btn"><i class="fa fa-angle-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fa fa-angle-right"></i></button>
+                </div>
+                <div class="s4-slider-window">
+                    <div class="s4-sp">
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/broccoli/broccoli_PNG72870.png" alt="Fresh Organic Broccoli">
+                                <div>
+                                    <p class="product-name-hai">Organic Broccoli</p>
+                                    <p class="product-price-hai">$3.50</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/strawberry/strawberry_PNG2604.png" alt="Sweet Strawberries">
+                                <div>
+                                    <p class="product-name-hai">Fresh Strawberries</p>
+                                    <p class="product-price-hai">$4.99</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/apple/apple_PNG12405.png" alt="Fresh Red Apples">
+                                <div>
+                                    <p class="product-name-hai">Red Apples</p>
+                                    <p class="product-price-hai">$2.80</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://png.pngtree.com/png-vector/20240728/ourmid/pngtree-ripe-hass-avocado-cut-in-half-with-seed-png-image_13267500.png" alt="Ripe Hass Avocado">
+                                <div>
+                                    <p class="product-name-hai">Hass Avocado</p>
+                                    <p class="product-price-hai">$5.50</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/banana/banana_PNG842.png" alt="Organic Bananas">
+                                <div>
+                                    <p class="product-name-hai">Organic Bananas</p>
+                                    <p class="product-price-hai">$1.99</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/carrot/carrot_PNG4985.png" alt="Fresh Carrots">
+                                <div>
+                                    <p class="product-name-hai">Sweet Carrots</p>
+                                    <p class="product-price-hai">$2.20</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/tomato/tomato_PNG12594.png" alt="Cherry Tomatoes">
+                                <div>
+                                    <p class="product-name-hai">Cherry Tomatoes</p>
+                                    <p class="product-price-hai">$3.20</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://static.vecteezy.com/system/resources/previews/055/326/708/non_2x/fresh-blueberries-with-green-leaves-on-a-pure-transparent-background-evoking-summers-bounty-and-natural-sweetness-fresh-blueberry-on-transparent-background-free-png.png" alt="Fresh Blueberries">
+                                <div>
+                                    <p class="product-name-hai">Fresh Blueberries</p>
+                                    <p class="product-price-hai">$5.99</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/orange/orange_PNG791.png" alt="Juicy Orange">
+                                <div>
+                                    <p class="product-name-hai">Juicy Oranges</p>
+                                    <p class="product-price-hai">$1.50</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s4-box">
+                <div class="s4-text">Top Rated Products</div>
+                <div class="s4-btn">
+                    <button class="nav-btn prev-btn"><i class="fa fa-angle-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fa fa-angle-right"></i></button>
+                </div>
+                <div class="s4-slider-window">
+                    <div class="s4-sp">
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://png.pngtree.com/png-vector/20240206/ourmid/pngtree-jar-of-pure-honey-with-dipper-png-image_11597331.png" alt="Pure Natural Honey">
+                                <div>
+                                    <p class="product-name-hai">Pure Honey</p>
+                                    <p class="product-price-hai">$8.99</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://png.pngtree.com/png-vector/20241105/ourmid/pngtree-organic-eggs-collection-png-image_14165337.png" alt="Organic Farm Eggs">
+                                <div>
+                                    <p class="product-name-hai">Organic Eggs</p>
+                                    <p class="product-price-hai">$4.50</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/spinach/spinach_PNG22.png" alt="Fresh Spinach Bunch">
+                                <div>
+                                    <p class="product-name-hai">Fresh Spinach</p>
+                                    <p class="product-price-hai">$2.00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://png.pngtree.com/png-vector/20240923/ourmid/pngtree-greek-yogurt-isolated-on-white-transparent-background-png-image_13886118.png" alt="Greek Plain Yogurt">
+                                <div>
+                                    <p class="product-name-hai">Greek Yogurt</p>
+                                    <p class="product-price-hai">$3.80</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/bread/bread_PNG2275.png" alt="Whole Grain Bread">
+                                <div>
+                                    <p class="product-name-hai">Whole Grain Bread</p>
+                                    <p class="product-price-hai">$3.99</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/grape/grape_PNG2963.png" alt="Sweet Green Grapes">
+                                <div>
+                                    <p class="product-name-hai">Green Grapes</p>
+                                    <p class="product-price-hai">$4.99</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/almond/almond_PNG53.png" alt="Raw Almonds Pack">
+                                <div>
+                                    <p class="product-name-hai">Raw Almonds</p>
+                                    <p class="product-price-hai">$7.50</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/056/884/090/small/vibrant-red-and-green-bell-peppers-with-a-halfcut-red-pepper-showing-seeds-free-png.png" alt="Fresh Bell Peppers">
+                                <div>
+                                    <p class="product-name-hai">Bell Peppers</p>
+                                    <p class="product-price-hai">$3.10</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://png.pngtree.com/png-vector/20240125/ourmid/pngtree-sliced-raw-salmon-fillet-png-file-png-image_11490817.png" alt="Fresh Salmon Fillet">
+                                <div>
+                                    <p class="product-name-hai">Salmon Fillet</p>
+                                    <p class="product-price-hai">$12.99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="s4-box">
+                <div class="s4-text">Review Products</div>
+                <div class="s4-btn">
+                    <button class="nav-btn prev-btn"><i class="fa fa-angle-left"></i></button>
+                    <button class="nav-btn next-btn"><i class="fa fa-angle-right"></i></button>
+                </div>
+                <div class="s4-slider-window">
+                    <div class="s4-sp">
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/olive_oil/olive_oil_PNG27.png" alt="Extra Virgin Olive Oil">
+                                <div>
+                                    <p class="product-name-hai">Olive Oil Extra</p>
+                                    <p class="product-price-hai">$14.50</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/044/813/574/small/chia-seeds-in-wooden-bowl-isolated-on-transparent-background-png.png" alt="Organic Chia Seeds">
+                                <div>
+                                    <p class="product-name-hai">Organic Chia Seeds</p>
+                                    <p class="product-price-hai">$6.20</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/014/038/702/small/fresh-tea-leaves-with-dew-on-the-leaf-surface-png.png" alt="Premium Green Tea">
+                                <div>
+                                    <p class="product-name-hai">Green Tea Leaves</p>
+                                    <p class="product-price-hai">$5.80</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/pineapple/pineapple_PNG2742.png" alt="Sweet Yellow Pineapple">
+                                <div>
+                                    <p class="product-name-hai">Sweet Pineapple</p>
+                                    <p class="product-price-hai">$4.20</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/rice/rice_PNG32.png" alt="Organic Quinoa Bag">
+                                <div>
+                                    <p class="product-name-hai">Organic Quinoa</p>
+                                    <p class="product-price-hai">$6.99</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://static.vecteezy.com/system/resources/previews/025/228/544/non_2x/fresh-lemons-pair-isolated-on-transparent-background-png.png" alt="Fresh Yellow Lemons">
+                                <div>
+                                    <p class="product-name-hai">Fresh Lemons</p>
+                                    <p class="product-price-hai">$1.80</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s4-page">
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/chocolate/chocolate_PNG27.png" alt="Dark Chocolate 70%">
+                                <div>
+                                    <p class="product-name-hai">Dark Chocolate</p>
+                                    <p class="product-price-hai">$3.50</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/potato/potato_PNG7081.png" alt="Sweet Potatoes">
+                                <div>
+                                    <p class="product-name-hai">Sweet Potatoes</p>
+                                    <p class="product-price-hai">$2.50</p>
+                                </div>
+                            </div>
+                            <div class="s4-boxcon">
+                                <img src="https://pngimg.com/uploads/walnut/walnut_PNG46.png" alt="Organic Walnuts">
+                                <div>
+                                    <p class="product-name-hai">Organic Walnuts</p>
+                                    <p class="product-price-hai">$8.20</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="section4-hai">
-        <div class="container">
-            <div class="inner">
-                <div class="s4-box">
-                    <div class="s4-text">Latest Products</div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-1.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-2.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-3.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                </div>
-                <div class="s4-box">
-                    <div class="s4-text">Top Rated Products</div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-1.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-2.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-3.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                </div>
-                <div class="s4-box">
-                    <div class="s4-text">Review Products</div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-1.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-2.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                    <div class="s4-boxcon"><img src="https://preview.colorlib.com/theme/ogani/img/latest-product/lp-3.jpg" alt="lp"><div><p class="product-name-hai">Crab Pool Security</p><p class="product-price-hai">$30.00</p></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
     <div class="section5-hai">
         <div class="container">
             <div class="inner">
-                <div class="s3-text-hai" style="text-align: center;">From The Blog</div>
+                <div class="s5-text-hai" style="text-align: center;">From The Blog</div>
                 <div class="dongke-hai"></div>
                 <div class="s5-blog-hai">
                     <a href="#" class="s5-box-hai">
@@ -254,7 +628,30 @@
         </div>
     </footer>
 
+    <div id="wishlist-modal" class="modal-overlay hide">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sản phẩm yêu thích </h3>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="wishlist-items-container">
+                <p>Danh sách trống </p>
+            </div>
+        </div>
+    </div>
 
+    <div id="cart-modal" class="modal-overlay hide">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Giỏ hàng của bạn </h3>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="cart-items-container">
+                <p>Giỏ hàng trống </p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"> </script>
 </body>
 
 </html>
