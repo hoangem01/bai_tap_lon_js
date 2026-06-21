@@ -19,6 +19,12 @@
 </head>
 
 <body class="body-hai">
+    <div id="intro-loader">
+        <div class="intro-logo">
+            <h1>OGANI</h1>
+            <p>100% Organic Food</p>
+        </div>
+    </div>
     <header class="header-hai">
         <div class="container">
             <div class="inner">
@@ -46,7 +52,7 @@
                                 <span id="cart-count">0</span>
                             </a>
                         </div>
-                        <div class="cart-price-hai">item: <span><b>$0.00</b></span></div>
+                        <div class="cart-price-hai">total: <span><b> $0.00</b></span></div>
                     </div>
                 </div>
             </div>
@@ -82,7 +88,7 @@
                                 <h5><b>+65 11.188.888</b></h5>
                                 <span>support 24/7 time</span>
                             </div>
-                            <div class="phone-icon-hai"><a href="#"><i class="fa fa-phone"></i></a></div>
+                            <div class="phone-icon-hai"><i class="fa fa-phone"></i></div>
                         </div>
                     </div>
                     <div class="banner-hai">
@@ -631,24 +637,36 @@
     <div id="wishlist-modal" class="modal-overlay hide">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Sản phẩm yêu thích </h3>
+                <h3> Favourites </h3>
                 <button class="close-modal-btn">&times;</button>
             </div>
             <div class="modal-body" id="wishlist-items-container">
-                <p>Danh sách trống </p>
+                <p>No products found.</p>
             </div>
+            <div class="modal-total">
+                    Total: 
+                    <span id="wishlist-modal-total">
+                        <b>$0.00</b>
+                    </span>
+                </div>
         </div>
     </div>
 
     <div id="cart-modal" class="modal-overlay hide">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Giỏ hàng của bạn </h3>
+                <h3>Cart </h3>
                 <button class="close-modal-btn">&times;</button>
             </div>
             <div class="modal-body" id="cart-items-container">
-                <p>Giỏ hàng trống </p>
+                <p>No products found.</p>
             </div>
+            <div class="modal-total">
+                    Total: 
+                    <span id="cart-modal-total">
+                        <b>$0.00</b>
+                    </span>
+                </div>
         </div>
     </div>
     <script src="script.js"> </script>

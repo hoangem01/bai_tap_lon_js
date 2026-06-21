@@ -1,3 +1,16 @@
+/* ================= INTRO ================= */
+window.addEventListener('load', function() {
+    let introLoader = document.getElementById('intro-loader');
+    
+    if (introLoader) {
+        setTimeout(function() {
+            introLoader.classList.add('fade-out');
+        }, 1000); 
+    }
+});
+
+
+
 /* ================= DROPDOWNS ================= */
 const allde = document.querySelector(".all-de-hai")
 const list2 = document.querySelector(".list-hai")
@@ -54,18 +67,49 @@ resetAutoPlay();
 let wishlist = JSON.parse(localStorage.getItem('myWishlist')) || [];
 let cart = JSON.parse(localStorage.getItem('myCart')) || [];
 
+
 function updateCounters() {
     let wishlistSpan = document.getElementById('wishlist-count');
     let cartSpan = document.getElementById('cart-count');
-    
+    let wishlistTotal = 0;
+    let cartTotal = 0;
+
     if(wishlistSpan) {
         wishlistSpan.innerText = wishlist.length;
     }
     if(cartSpan) {
         cartSpan.innerText = cart.length;
     }
+
+    wishlist.forEach(function(item) {
+        let priceNumber = parseFloat(item.price.replace('$', ''));
+        wishlistTotal += priceNumber;
+    });
+
+    cart.forEach(function(item) {
+        let priceNumber = parseFloat(item.price.replace('$', ''));
+        cartTotal += priceNumber;
+    });
+
+    let globalTotal = wishlistTotal + cartTotal;
+
+    let priceDisplay = document.querySelector('.cart-price-hai span b');
+    if (priceDisplay) {
+        priceDisplay.innerText = '$' + globalTotal.toFixed(2);
+    }
+
+    let wishlistModalTotalDisplay = document.getElementById('wishlist-modal-total');
+    if (wishlistModalTotalDisplay) {
+        wishlistModalTotalDisplay.innerHTML = '$' + wishlistTotal.toFixed(2) ;
+    }
+
+    let cartModalTotalDisplay = document.getElementById('cart-modal-total');
+    if (cartModalTotalDisplay) {
+        cartModalTotalDisplay.innerHTML = '$' + cartTotal.toFixed(2);
+    }
 }
 updateCounters();
+
 
 document.querySelectorAll('.add-to-wishlist').forEach(btn => {
     btn.addEventListener('click', function(e) {
@@ -111,7 +155,7 @@ function renderList(listArray, containerId, storageKey) {
     const container = document.getElementById(containerId);
     container.innerHTML = ''; 
     if (listArray.length === 0) {
-        container.innerHTML = '<p style="text-align:center; padding: 20px;">Danh sách trống.</p>';
+        container.innerHTML = '<p style="text-align:center; padding: 20px;">No products found.</p>';
         return;
     }
     listArray.forEach(function(item, index) {
@@ -180,10 +224,10 @@ const noProduct = document.getElementById('no-product');
                 const productCate = product.getAttribute('data-category');
                 
                 if (filterValue === 'all' || filterValue === productCate) {
-                    product.classList.remove('hide-product'); // Xóa class -> Sản phẩm trượt ra
+                    product.classList.remove('hide-product'); 
                     visibleCount++;
                 } else {
-                    product.classList.add('hide-product'); // Thêm class -> Sản phẩm hút lại
+                    product.classList.add('hide-product'); 
                 }
                 
             });
@@ -196,4 +240,5 @@ const noProduct = document.getElementById('no-product');
         });
         
     });
+
 
