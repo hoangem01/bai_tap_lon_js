@@ -1,68 +1,84 @@
-/* ================= INTRO ================= */
-window.addEventListener('load', function() {
-    let introLoader = document.getElementById('intro-loader');
+/* ================= SECTION 3 ================= */
+    fetch('products.json')
+        .then(response => response.json()) 
+        .then(data => {
     
-    if (introLoader) {
-        setTimeout(function() {
-            introLoader.classList.add('fade-out');
-        }, 1000); 
-    }
-});
+            if (!localStorage.getItem('mySection3Products')) {
+                localStorage.setItem('mySection3Products', JSON.stringify(data));
+            }
 
-
-
-/* ================= DROPDOWNS ================= */
-const allde = document.querySelector(".all-de-hai")
-const list2 = document.querySelector(".list-hai")
-
-allde.addEventListener("click", () => {
-    list2.classList.toggle('hide')
-});
-
-const box = document.querySelector(".box-hai")
-
-
-/* ================= SLIDER ================= */
-const sliders = document.querySelectorAll('.s4-box');
-
-sliders.forEach(slider =>{
-    const prevBtn = slider.querySelector('.prev-btn');
-    const nextBtn = slider.querySelector('.next-btn');
-    const track = slider.querySelector('.s4-sp')
-    const slides = slider.querySelectorAll('.s4-page')
-
-let currentIndex = 0;
-let timer;
-
-function resetAutoPlay() {
-    clearInterval(timer);
-    timer = setInterval(nextSlide,3000)
-};
-function updateSlider() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlider();
-        }
-function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length; 
-            updateSlider();
-        }
-nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetAutoPlay(); 
+            renderSection3Products();
+        })
+        .catch(error => {
+            console.error('Lỗi khi fetch dữ liệu sản phẩm:', error);
         });
 
-prevBtn.addEventListener('click', () => {
-    prevSlide();
-    resetAutoPlay();
+    function renderSection3Products() {
+        const productsData = JSON.parse(localStorage.getItem('mySection3Products'));
+        const container = document.getElementById('section3-container');
+        if (!container) return; 
+        
+        container.innerHTML = ''; 
+        
+        productsData.forEach(product => {
+            const productHTML = `
+                <div class="box-hai" data-category="${product.category}">
+                    <div class="img-box-hai">
+                        <img src="${product.image}" alt="${product.name}">
+                        <ul class="hover-icons">
+                            <li><a href="#" class="add-to-wishlist" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}"><i class="fa-solid fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa-solid fa-retweet"></i></a></li>
+                            <li><a href="#" class="add-to-cart" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" data-image="${product.image}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        </ul>
+                    </div>
+                    <p class="product-price-hai"><a href="#">${product.name}</a></p>
+                    <p class="product-price-hai">${product.price}</p>
+                </div>
+            `;
+            container.innerHTML += productHTML; 
+        });
+        attachEventListeners(); 
+    }
 
-});
-updateSlider();
-resetAutoPlay();
-});
+       
+    function attachEventListeners() {
+       
+/* ================= NAVS ================= */ 
+        const navItems = document.querySelectorAll('.featured-nav li');
+        const products = document.querySelectorAll('.s3-anh-hai .box-hai');
+        const noProduct = document.getElementById('no-product');
 
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    navItems.forEach(li => li.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+
+                    let visibleCount = 0;
+                    products.forEach(product => {
+                        
+                        const productCate = product.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || filterValue === productCate) {
+                            product.classList.remove('hide-product'); 
+                            visibleCount++;
+                        } else {
+                            product.classList.add('hide-product'); 
+                        }
+                        
+                    });
+                    
+                    if (visibleCount === 0) {
+                        noProduct.style.display = 'block';
+                    } else {
+                        noProduct.style.display = 'none'; 
+                    }
+                });
+                
+            });
+            
 /* ================= GIỎ HÀNG & YÊU THÍCH (LOCALSTORAGE) ================= */
 let wishlist = JSON.parse(localStorage.getItem('myWishlist')) || [];
 let cart = JSON.parse(localStorage.getItem('myCart')) || [];
@@ -205,40 +221,74 @@ closeBtns.forEach(function(btn) {
 });
 
 
-/* ================= NAVS ================= */ 
-const navItems = document.querySelectorAll('.featured-nav li');
-const products = document.querySelectorAll('.s3-anh-hai .box-hai');
-const noProduct = document.getElementById('no-product');
 
 
-    navItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            navItems.forEach(li => li.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filterValue = this.getAttribute('data-filter');
+    }
 
-            let visibleCount = 0;
-            products.forEach(product => {
-                
-                const productCate = product.getAttribute('data-category');
-                
-                if (filterValue === 'all' || filterValue === productCate) {
-                    product.classList.remove('hide-product'); 
-                    visibleCount++;
-                } else {
-                    product.classList.add('hide-product'); 
-                }
-                
-            });
-            
-            if (visibleCount === 0) {
-                noProduct.style.display = 'block';
-            } else {
-                noProduct.style.display = 'none'; 
-            }
+
+
+/* ================= INTRO ================= */
+window.addEventListener('load', function() {
+    let introLoader = document.getElementById('intro-loader');
+    
+    if (introLoader) {
+        setTimeout(function() {
+            introLoader.classList.add('fade-out');
+        }, 1000); 
+    }
+});
+
+
+
+/* ================= DROPDOWNS ================= */
+const allde = document.querySelector(".all-de-hai")
+const list2 = document.querySelector(".list-hai")
+
+allde.addEventListener("click", () => {
+    list2.classList.toggle('hide')
+});
+
+const box = document.querySelector(".box-hai")
+
+
+/* ================= SLIDER ================= */
+const sliders = document.querySelectorAll('.s4-box');
+
+sliders.forEach(slider =>{
+    const prevBtn = slider.querySelector('.prev-btn');
+    const nextBtn = slider.querySelector('.next-btn');
+    const track = slider.querySelector('.s4-sp')
+    const slides = slider.querySelectorAll('.s4-page')
+
+let currentIndex = 0;
+let timer;
+
+function resetAutoPlay() {
+    clearInterval(timer);
+    timer = setInterval(nextSlide,3000)
+};
+function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length; 
+            updateSlider();
+        }
+nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoPlay(); 
         });
-        
-    });
 
+prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAutoPlay();
+
+});
+updateSlider();
+resetAutoPlay();
+});
 

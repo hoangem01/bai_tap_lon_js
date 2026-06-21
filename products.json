@@ -1,0 +1,58 @@
+[
+    { 
+        "id": "sp1", 
+        "name": "Fresh Beef", 
+        "price": "$30.00", 
+        "image": "https://png.pngtree.com/png-vector/20240506/ourmid/pngtree-fresh-beef-on-a-plate-with-transparent-background-png-image_12364944.png", 
+        "category": "fresh-meat" 
+    },
+    { 
+        "id": "sp2", 
+        "name": "Fresh Bananas", 
+        "price": "$25.00", 
+        "image": "https://png.pngtree.com/png-clipart/20250124/original/pngtree-bunch-of-bananas-on-white-background-clipart-illustration-png-image_20012851.png", 
+        "category": "vegetables" 
+    },
+    { 
+        "id": "sp3", 
+        "name": "Sweet Watermelon", 
+        "price": "$15.00", 
+        "image": "https://png.pngtree.com/png-vector/20251224/ourmid/pngtree-sliced-watermelon-on-white-background-png-image_18328177.webp", 
+        "category": "vegetables" 
+    },
+    { 
+        "id": "sp4", 
+        "name": "Fruit Cereal", 
+        "price": "$30.00", 
+        "image": "https://png.pngtree.com/png-clipart/20250109/original/pngtree-fruit-loops-cereal-bowl-on-transparent-background-png-image_20110142.png", 
+        "category": "fastfood" 
+    },
+    { 
+        "id": "sp5", 
+        "name": "Organic Raspberries", 
+        "price": "$30.00", 
+        "image": "https://png.pngtree.com/png-clipart/20250124/original/pngtree-organic-raspberries-in-a-basket-isolated-on-white-background-png-image_20009889.png", 
+        "category": "vegetables" 
+    },
+    { 
+        "id": "sp6", 
+        "name": "Perfect Apple", 
+        "price": "$30.00", 
+        "image": "https://png.pngtree.com/png-clipart/20250131/original/pngtree-perfect-apple-on-white-background-for-flyers-and-brochures-png-image_20353147.png", 
+        "category": "vegetables" 
+    },
+    { 
+        "id": "sp7", 
+        "name": "Classic Hamburger", 
+        "price": "$30.00", 
+        "image": "https://png.pngtree.com/png-clipart/20250518/original/pngtree-classic-hamburger-sandwich-on-white-background-png-image_21026360.png", 
+        "category": "fastfood" 
+    },
+    { 
+        "id": "sp8", 
+        "name": "Red Fish Meat", 
+        "price": "$30.00", 
+        "image": "https://png.pngtree.com/png-clipart/20240506/original/pngtree-red-fish-meat-concept-color-png-image_15017947.png", 
+        "category": "fresh-meat" 
+    }
+]

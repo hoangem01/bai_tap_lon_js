@@ -450,7 +450,9 @@
     margin-top: 100px;
     display: none;
 }
-
+.danh-sach-san-pham{
+   width: 100%;
+}
 .box-hai {
     width: calc(25% - 15px);
     text-align: center;
