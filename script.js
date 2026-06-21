@@ -1,5 +1,5 @@
 /* ================= SECTION 3 ================= */
-    fetch('products.json')
+    fetch('fake-api/products-s3.json')
         .then(response => response.json()) 
         .then(data => {
     
@@ -16,7 +16,6 @@
     function renderSection3Products() {
         const productsData = JSON.parse(localStorage.getItem('mySection3Products'));
         const container = document.getElementById('section3-container');
-        if (!container) return; 
         
         container.innerHTML = ''; 
         
@@ -78,7 +77,7 @@
                 });
                 
             });
-            
+
 /* ================= GIỎ HÀNG & YÊU THÍCH (LOCALSTORAGE) ================= */
 let wishlist = JSON.parse(localStorage.getItem('myWishlist')) || [];
 let cart = JSON.parse(localStorage.getItem('myCart')) || [];
@@ -219,40 +218,54 @@ closeBtns.forEach(function(btn) {
         this.closest('.modal-overlay').classList.add('hide');
     });
 });
-
-
-
-
     }
 
+/* ================= SECTION 4 ================= */
+// Gọi API lấy dữ liệu Section 4
+fetch('fake-api/products-s4.json') // Nhớ kiểm tra đường dẫn folder của bạn
+    .then(response => response.json())
+    .then(data => {
+        
+        if (!localStorage.getItem('mySection4Products')) {
+            localStorage.setItem('mySection4Products', JSON.stringify(data));
+        }
+        
+        renderSection4All(); 
+    })
+    .catch(error => console.error('Lỗi fetch Section 4:', error));
 
-
-/* ================= INTRO ================= */
-window.addEventListener('load', function() {
-    let introLoader = document.getElementById('intro-loader');
+function renderSection4All() {
+    const products = JSON.parse(localStorage.getItem('mySection4Products')) || [];
     
-    if (introLoader) {
-        setTimeout(function() {
-            introLoader.classList.add('fade-out');
-        }, 1000); 
+    renderSection4(products.filter(p => p.type === 'latest'), 'latest-products-container');
+    renderSection4(products.filter(p => p.type === 'top-rated'), 'top-rated-container');
+    renderSection4(products.filter(p => p.type === 'review'), 'review-container');
+}
+function renderSection4(products, containerId) {
+    const container = document.getElementById(containerId);
+  
+    container.innerHTML = '';
+
+    for (let i = 0; i < products.length; i += 3) {
+        let pageHTML = `<div class="s4-page">`;
+        products.slice(i, i + 3).forEach(p => {
+            pageHTML += `
+                <div class="s4-boxcon">
+                    <img src="${p.image}" alt="${p.name}">
+                    <div>
+                        <p class="product-name-hai">${p.name}</p>
+                        <p class="product-price-hai">${p.price}</p>
+                    </div>
+                </div>
+            `;
+        });
+        pageHTML += `</div>`;
+        container.innerHTML += pageHTML;
     }
-});
-
-
-
-/* ================= DROPDOWNS ================= */
-const allde = document.querySelector(".all-de-hai")
-const list2 = document.querySelector(".list-hai")
-
-allde.addEventListener("click", () => {
-    list2.classList.toggle('hide')
-});
-
-const box = document.querySelector(".box-hai")
-
-
+    initSlider();
+}
 /* ================= SLIDER ================= */
-const sliders = document.querySelectorAll('.s4-box');
+function initSlider() {const sliders = document.querySelectorAll('.s4-box');
 
 sliders.forEach(slider =>{
     const prevBtn = slider.querySelector('.prev-btn');
@@ -291,4 +304,29 @@ prevBtn.addEventListener('click', () => {
 updateSlider();
 resetAutoPlay();
 });
+
+}
+/* ================= INTRO ================= */
+window.addEventListener('load', function() {
+    let introLoader = document.getElementById('intro-loader');
+    
+    if (introLoader) {
+        setTimeout(function() {
+            introLoader.classList.add('fade-out');
+        }, 1000); 
+    }
+});
+
+
+
+/* ================= DROPDOWNS ================= */
+const allde = document.querySelector(".all-de-hai")
+const list2 = document.querySelector(".list-hai")
+
+allde.addEventListener("click", () => {
+    list2.classList.toggle('hide')
+});
+
+const box = document.querySelector(".box-hai")
+
 

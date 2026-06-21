@@ -1,0 +1,191 @@
+[
+    {
+        "id": "sp9",
+        "name": "Organic Broccoli",
+        "price": "$3.50",
+        "image": "https://pngimg.com/uploads/broccoli/broccoli_PNG72870.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp10",
+        "name": "Fresh Strawberries",
+        "price": "$4.99",
+        "image": "https://pngimg.com/uploads/strawberry/strawberry_PNG2604.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp11",
+        "name": "Red Apples",
+        "price": "$2.80",
+        "image": "https://pngimg.com/uploads/apple/apple_PNG12405.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp12",
+        "name": "Hass Avocado",
+        "price": "$5.50",
+        "image": "https://png.pngtree.com/png-vector/20240728/ourmid/pngtree-ripe-hass-avocado-cut-in-half-with-seed-png-image_13267500.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp13",
+        "name": "Organic Bananas",
+        "price": "$1.99",
+        "image": "https://pngimg.com/uploads/banana/banana_PNG842.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp14",
+        "name": "Sweet Carrots",
+        "price": "$2.20",
+        "image": "https://pngimg.com/uploads/carrot/carrot_PNG4985.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp15",
+        "name": "Cherry Tomatoes",
+        "price": "$3.20",
+        "image": "https://pngimg.com/uploads/tomato/tomato_PNG12594.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp16",
+        "name": "Fresh Blueberries",
+        "price": "$5.99",
+        "image": "https://static.vecteezy.com/system/resources/previews/055/326/708/non_2x/fresh-blueberries-with-green-leaves-on-a-pure-transparent-background-evoking-summers-bounty-and-natural-sweetness-fresh-blueberry-on-transparent-background-free-png.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp17",
+        "name": "Juicy Oranges",
+        "price": "$1.50",
+        "image": "https://pngimg.com/uploads/orange/orange_PNG791.png",
+        "type": "latest"
+    },
+    {
+        "id": "sp18",
+        "name": "Pure Honey",
+        "price": "$8.99",
+        "image": "https://png.pngtree.com/png-vector/20240206/ourmid/pngtree-jar-of-pure-honey-with-dipper-png-image_11597331.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp19",
+        "name": "Organic Eggs",
+        "price": "$4.50",
+        "image": "https://png.pngtree.com/png-vector/20241105/ourmid/pngtree-organic-eggs-collection-png-image_14165337.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp20",
+        "name": "Fresh Spinach",
+        "price": "$2.00",
+        "image": "https://pngimg.com/uploads/spinach/spinach_PNG22.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp21",
+        "name": "Greek Yogurt",
+        "price": "$3.80",
+        "image": "https://png.pngtree.com/png-vector/20240923/ourmid/pngtree-greek-yogurt-isolated-on-white-transparent-background-png-image_13886118.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp22",
+        "name": "Whole Grain Bread",
+        "price": "$3.99",
+        "image": "https://pngimg.com/uploads/bread/bread_PNG2275.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp23",
+        "name": "Green Grapes",
+        "price": "$4.99",
+        "image": "https://pngimg.com/uploads/grape/grape_PNG2963.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp24",
+        "name": "Raw Almonds",
+        "price": "$7.50",
+        "image": "https://pngimg.com/uploads/almond/almond_PNG53.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp25",
+        "name": "Bell Peppers",
+        "price": "$3.10",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/056/884/090/small/vibrant-red-and-green-bell-peppers-with-a-halfcut-red-pepper-showing-seeds-free-png.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp26",
+        "name": "Salmon Fillet",
+        "price": "$12.99",
+        "image": "https://png.pngtree.com/png-vector/20240125/ourmid/pngtree-sliced-raw-salmon-fillet-png-file-png-image_11490817.png",
+        "type": "top-rated"
+    },
+    {
+        "id": "sp27",
+        "name": "Olive Oil Extra",
+        "price": "$14.50",
+        "image": "https://pngimg.com/uploads/olive_oil/olive_oil_PNG27.png",
+        "type": "review"
+    },
+    {
+        "id": "sp28",
+        "name": "Organic Chia Seeds",
+        "price": "$6.20",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/044/813/574/small/chia-seeds-in-wooden-bowl-isolated-on-transparent-background-png.png",
+        "type": "review"
+    },
+    {
+        "id": "sp29",
+        "name": "Green Tea Leaves",
+        "price": "$5.80",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/014/038/702/small/fresh-tea-leaves-with-dew-on-the-leaf-surface-png.png",
+        "type": "review"
+    },
+    {
+        "id": "sp30",
+        "name": "Sweet Pineapple",
+        "price": "$4.20",
+        "image": "https://pngimg.com/uploads/pineapple/pineapple_PNG2742.png",
+        "type": "review"
+    },
+    {
+        "id": "sp31",
+        "name": "Organic Quinoa",
+        "price": "$6.99",
+        "image": "https://pngimg.com/uploads/rice/rice_PNG32.png",
+        "type": "review"
+    },
+    {
+        "id": "sp32",
+        "name": "Fresh Lemons",
+        "price": "$1.80",
+        "image": "https://static.vecteezy.com/system/resources/previews/025/228/544/non_2x/fresh-lemons-pair-isolated-on-transparent-background-png.png",
+        "type": "review"
+    },
+    {
+        "id": "sp33",
+        "name": "Dark Chocolate",
+        "price": "$3.50",
+        "image": "https://pngimg.com/uploads/chocolate/chocolate_PNG27.png",
+        "type": "review"
+    },
+    {
+        "id": "sp34",
+        "name": "Sweet Potatoes",
+        "price": "$2.50",
+        "image": "https://pngimg.com/uploads/potato/potato_PNG7081.png",
+        "type": "review"
+    },
+    {
+        "id": "sp35",
+        "name": "Organic Walnuts",
+        "price": "$8.20",
+        "image": "https://pngimg.com/uploads/walnut/walnut_PNG46.png",
+        "type": "review"
+    }
+]
