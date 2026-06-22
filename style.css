@@ -385,6 +385,7 @@
 
     .phone-hai {
         flex-direction: row;
+        gap: 20px;
     }
 
     .phone-icon-hai {
