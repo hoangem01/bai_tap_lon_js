@@ -20,7 +20,7 @@
         container.innerHTML = ''; 
         
         productsData.forEach(product => {
-            const productHTML = `
+            container.innerHTML +=  `
                 <div class="box-hai" data-category="${product.category}">
                     <div class="img-box-hai">
                         <img src="${product.image}" alt="${product.name}">
@@ -34,7 +34,7 @@
                     <p class="product-price-hai">${product.price}</p>
                 </div>
             `;
-            container.innerHTML += productHTML; 
+             
         });
         attachEventListeners(); 
     }

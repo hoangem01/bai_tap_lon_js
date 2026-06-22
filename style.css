@@ -349,7 +349,15 @@
     .section2-hai .inner {
         flex-direction: column;
     }
-
+    .phone-hai {
+        flex-direction: row-reverse;
+    }
+    .search-hai{
+        width: 60%;
+    }
+    .phone-hai{
+         width: 40%;
+    }
     .s2-o1-hai,
     .s2-o2-hai {
         width: 100%;
@@ -363,7 +371,7 @@
 @media (max-width: 767px) {
     .search-phone-hai {
         flex-direction: column;
-        height: auto;
+        height: 100%;
         gap: 20px;
     }
 
@@ -371,6 +379,7 @@
     .phone-hai {
         width: 100%;
         justify-content: flex-start;
+        min-height: 50px;
     }
 
     .phone-hai {
@@ -389,7 +398,12 @@
         font-size: 32px;
     }
 }
-
+@media (max-width: 575px) {
+    .search-hai{
+        min-height: 50px;
+    }
+    
+}
 
 /* ================= SECTION 3 (FEATURED PRODUCTS) ================= */
 .section3-hai {
@@ -489,6 +503,8 @@
     justify-content: center;
     gap: 20px;
     bottom: -50px;
+    flex-wrap: nowrap;
+    flex-direction: row;
     transition: all 0.4s ease-in-out;
 }
 
@@ -558,10 +574,11 @@
         width: 100%;
     }
 
-    .section3-hai ul {
+    .s3-text-hai ul {
         flex-direction: column;
         gap: 10px;
     }
+    
 }
 
 
