@@ -342,8 +342,14 @@
             }
             .phone-icon-hai {
                 margin-right: 0px;
+                
 }
-
+.search-hai{
+        width: 65%;
+    }
+    .phone-hai{
+         width: 35%;
+    }
         }
 @media (max-width: 991px) {
     .section2-hai .inner {
@@ -352,12 +358,7 @@
     .phone-hai {
         flex-direction: row-reverse;
     }
-    .search-hai{
-        width: 60%;
-    }
-    .phone-hai{
-         width: 40%;
-    }
+    
     .s2-o1-hai,
     .s2-o2-hai {
         width: 100%;
@@ -378,7 +379,7 @@
     .search-hai,
     .phone-hai {
         width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
         min-height: 50px;
     }
 
